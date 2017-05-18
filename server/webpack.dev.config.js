@@ -6,7 +6,7 @@ module.exports = {
 
   entry: [
     'webpack-hot-middleware/client',
-    './src/index.tsx'
+    './src/index.ts'
   ],
   output: {
     path: path.join(__dirname, 'build/libs/'),
@@ -15,7 +15,7 @@ module.exports = {
   },
   // Currently we need to add '.ts' to the resolve.extensions array.
   resolve: {
-    extensions: ['.js', '.jsx', '.ts', '.tsx']
+    extensions: ['.js', '.ts']
   },
 
   // Source maps support ('inline-source-map' also works)
@@ -25,15 +25,10 @@ module.exports = {
   module: {
     loaders: [
       {
-        test: /\.tsx$/,
+        test: /\.ts$/,
         loaders: ['awesome-typescript-loader'],
         exclude: /node_modules/,
       },
-      {
-        test: /\.js$/,
-        loaders: ['react-hot-loader'],
-        exclude: /node_modules/,
-      }
     ]
   },
   plugins: [

@@ -4,14 +4,14 @@ const path = require('path');
 
 module.exports = {
 
-  entry: './src/index.tsx',
+  entry: './src/index.ts',
   output: {
     path: path.join(__dirname, 'build/libs/'),
     filename: 'bundle.[hash].js'
   },
   // Currently we need to add '.ts' to the resolve.extensions array.
   resolve: {
-    extensions: ['.js', '.jsx', '.ts', '.tsx']
+    extensions: ['.js', '.ts']
   },
 
   // Source maps support ('inline-source-map' also works)
@@ -21,7 +21,7 @@ module.exports = {
   module: {
     loaders: [
       {
-        test: /\.tsx?$/,
+        test: /\.ts?$/,
         loader: 'awesome-typescript-loader'
       }
     ]

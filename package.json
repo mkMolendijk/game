@@ -4,9 +4,6 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
-    "@types/react": "^15.0.24",
-    "@types/react-dom": "^15.5.0",
-    "pixi.js": "^4.5.1",
     "react": "^15.5.4",
     "react-dom": "^15.5.4"
   },
