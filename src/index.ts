@@ -1,9 +1,22 @@
+import * as PIXI from 'pixi.js';
 
+/**
+ * Core Game
+ * Used to start the loop and render the canvas.
+ * Starts PIXI rendering engine.
+ */
 class Game {
 
   private static instance : Game;
 
-  private constructor() {}
+  public game: PIXI.Application;
+
+  private constructor() {
+
+    this.game = new PIXI.Application();
+
+    document.body.appendChild(this.game.view);
+  }
 
   public static getInstance() : Game {
 
@@ -13,9 +26,10 @@ class Game {
     return Game.instance;
   }
 
-  public sayHello() : void{
-    alert('hey');
+  public loop = () => {
+
+    window.requestAnimationFrame(this.loop);
   }
 }
 
-Game.getInstance().sayHello();
+Game.getInstance().loop();
