@@ -1,5 +1,7 @@
 import * as PIXI from 'pixi.js';
 
+import './style/main.css';
+
 /**
  * Core Game
  * Used to start the loop and render the canvas.
@@ -8,14 +10,21 @@ import * as PIXI from 'pixi.js';
 class Game {
 
   private static instance : Game;
+  private renderer : any;
 
-  public game: PIXI.Application;
+  public game : PIXI.Application;
 
   private constructor() {
 
     this.game = new PIXI.Application();
+    this.render(window.innerWidth, window.innerHeight);
 
-    document.body.appendChild(this.game.view);
+    document.body.appendChild(this.renderer.view);
+  }
+
+  public render(width : number, height : number, options? : Object) {
+
+    this.renderer = PIXI.autoDetectRenderer(width, height);
   }
 
   public static getInstance() : Game {
@@ -26,7 +35,7 @@ class Game {
     return Game.instance;
   }
 
-  public loop = () => {
+  public loop : () => void = () : void => {
 
     window.requestAnimationFrame(this.loop);
   }

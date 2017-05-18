@@ -21,7 +21,6 @@ module.exports = {
   // Source maps support ('inline-source-map' also works)
   devtool: 'source-map',
 
-  // Add the loader for .ts files.
   module: {
     loaders: [
       {
@@ -29,6 +28,11 @@ module.exports = {
         loaders: ['awesome-typescript-loader'],
         exclude: /node_modules/,
       },
+      {
+        test: /\.css$/,
+        loaders: ['style-loader', 'css-loader'],
+        exclude: /node_modules/,
+      }
     ]
   },
   plugins: [
