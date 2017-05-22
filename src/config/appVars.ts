@@ -6,7 +6,7 @@ export default {
     vy: 1,
   },
   paths: {
-    sprites: '/static/spritesheets/',
+    sprites: './static/spritesheets/',
   },
   sprites: {
     alien: {

@@ -11,7 +11,7 @@ module.exports = {
   output: {
     path: path.join(__dirname, 'dist/libs/'),
     filename: 'bundle.js',
-    publicPath: '/static/'
+    publicPath: '/dist/static/'
   },
   // Currently we need to add '.ts' to the resolve.extensions array.
   resolve: {
