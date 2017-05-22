@@ -8,12 +8,14 @@ class Moving implements Behaviour {
   constructor(gameObject : GameObject) {
 
     this.gameObject = gameObject;
+    this.gameObject.renderable.texture = PIXI.Texture.fromFrame('alien_moving');
   }
 
   update() : void {
 
     this.gameObject.renderable.x += this.gameObject.vx;
     this.gameObject.renderable.y += this.gameObject.vy;
+
   }
 }
 

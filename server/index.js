@@ -11,7 +11,7 @@ app.use(require('webpack-dev-middleware')(compiler, {
 }));
 
 app.use('/static',
-  express.static('dist/static')
+  express.static('dist/static/')
 );
 
 app.use(require('webpack-hot-middleware')(compiler));

@@ -9,9 +9,10 @@ import Behaviour from "../Interfaces/Behaviour";
 class Player extends GameObject implements PlayableCharacter{
 
   private isMoving : string | boolean;
+  private behaviour : Behaviour;
+
   public vx: number = 0;
   public vy: number = 0;
-  private behaviour : Behaviour;
 
   constructor(x : number, y : number, image : string) {
 
@@ -34,6 +35,8 @@ class Player extends GameObject implements PlayableCharacter{
       this.isMoving = false;
       this.vx = 0;
       this.vy = 0;
+
+      this.behaviour = new Idle((this));
     })
   }
 

@@ -35,7 +35,8 @@ class Game {
 
     const loader = PIXI.loader;
 
-    loader.add('alien', appVars.paths.sprites + appVars.sprites.alien.src);
+    loader.add('alien_idle', appVars.paths.sprites + appVars.sprites.alien.idle);
+    loader.add('alien_moving', appVars.paths.sprites + appVars.sprites.alien.moving);
     loader.load(() => this.onAssetsLoaded());
   }
 
@@ -50,7 +51,7 @@ class Game {
     document.body.appendChild(this.renderer.view);
 
     this.stage = new PIXI.Container();
-    const player : Player = new Player(window.innerWidth / 2, window.innerHeight / 2, 'alien');
+    const player : Player = new Player(window.innerWidth / 2, window.innerHeight / 2, 'alien_idle');
 
     this.renderQueue.push(player);
     this.stage.addChild(player.renderable);

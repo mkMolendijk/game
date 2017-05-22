@@ -10,8 +10,8 @@ export default {
   },
   sprites: {
     alien: {
-      src: 'alien/frame-2.png',
-      alt: 'alien/frame-1.png',
+      moving: 'alien/frame-1.png',
+      idle: 'alien/frame-2.png',
     }
   }
 }
