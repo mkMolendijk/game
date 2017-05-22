@@ -11,13 +11,13 @@ app.use(require('webpack-dev-middleware')(compiler, {
 }));
 
 app.use('/static',
-  express.static('build/static')
+  express.static('dist/static')
 );
 
 app.use(require('webpack-hot-middleware')(compiler));
 
 app.get('*', function(req, res) {
-  res.sendFile(path.resolve('./build/index.html'));
+  res.sendFile(path.resolve('./dist/index.html'));
 });
 
 app.listen(3000, function(err) {

@@ -9,7 +9,7 @@ module.exports = {
     './src/index.ts'
   ],
   output: {
-    path: path.join(__dirname, 'build/libs/'),
+    path: path.join(__dirname, 'dist/libs/'),
     filename: 'bundle.js',
     publicPath: '/static/'
   },
