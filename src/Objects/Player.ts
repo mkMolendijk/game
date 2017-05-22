@@ -2,21 +2,26 @@ import GameObject from './GameObject';
 import PlayableCharacter from '../Interfaces/PlayableCharacter';
 import Input from '../Utils/Input';
 import appVars from '../config/appVars';
+import Idle from '../Behaviours/Idle';
+import Moving from '../Behaviours/Moving';
+import Behaviour from "../Interfaces/Behaviour";
 
 class Player extends GameObject implements PlayableCharacter{
 
   private isMoving : string | boolean;
   private vx: number = 0;
   private vy: number = 0;
+  private behaviour : Behaviour;
 
   constructor(x : number, y : number, image : string) {
 
     super(x, y, image);
 
-    this.setMovementControls({});
+    this.behaviour = new Idle(this);
+    this.setMovementControls();
   }
 
-  public setMovementControls(controls : Object) : void {
+  public setMovementControls() : void {
 
     window.addEventListener("keydown", (e) => {
 
@@ -61,14 +66,18 @@ class Player extends GameObject implements PlayableCharacter{
     else if (this.isMoving === 'Left') {
       this.vx = -vx;
     }
+
+    this.behaviour = new Moving(this);
   }
 
   public render() {
 
     super.render();
 
-    this.renderable.x += this.vx;
-    this.renderable.y += this.vy;
+    this.behaviour.update();
+
+    // this.renderable.x += this.vx;
+    // this.renderable.y += this.vy;
   }
 }
 

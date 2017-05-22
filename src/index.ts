@@ -21,7 +21,14 @@ class Game {
   private constructor() {
 
     this.load();
+  }
 
+  public static getInstance() : Game {
+
+    if (!Game.instance) {
+      Game.instance = new Game;
+    }
+    return Game.instance;
   }
 
   private load() : void {
@@ -49,27 +56,16 @@ class Game {
     this.stage.addChild(player.renderable);
 
     this.renderer.render(this.stage);
-    this.loop();
-  }
-
-  public static getInstance() : Game {
-
-    if (!Game.instance) {
-      Game.instance = new Game;
-    }
-    return Game.instance;
+    requestAnimationFrame(this.loop);
   }
 
   public loop : () => void = () : void => {
 
-    this.renderQueue.map((item) => {
-
-      item.render();
-    });
+    this.renderQueue.map((item) => item.render());
 
     this.renderer.render(this.stage);
 
-    window.requestAnimationFrame(this.loop);
+    requestAnimationFrame(this.loop);
   }
 }
 

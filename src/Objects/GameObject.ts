@@ -3,6 +3,8 @@ import appVars from '../config/appVars';
 abstract class GameObject {
 
   public renderable : PIXI.Sprite;
+  public vx : number;
+  public vy : number;
 
   constructor(x : number, y : number, image : string) {
 

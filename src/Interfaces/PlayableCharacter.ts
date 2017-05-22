@@ -1,7 +1,7 @@
 
 interface PlayableCharacter {
 
-  setMovementControls(controls : Object) : void;
+  setMovementControls() : void;
 
   move() : void;
 }
