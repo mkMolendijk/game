@@ -3,6 +3,7 @@ import appVars from './config/appVars';
 import Player from './Objects/Player';
 
 import './style/main.css';
+import GameObject from "./Objects/GameObject";
 
 /**
  * Core Game
@@ -14,13 +15,13 @@ class Game {
   private static instance : Game;
   private renderer : any;
 
-  public game : PIXI.Application;
+  public renderQueue : Array<GameObject> = [];
+  private stage : PIXI.Container;
 
   private constructor() {
 
-    this.game = new PIXI.Application();
-
     this.load();
+
   }
 
   private load() : void {
@@ -41,12 +42,13 @@ class Game {
     this.renderer = PIXI.autoDetectRenderer(width, height);
     document.body.appendChild(this.renderer.view);
 
-    const stage = new PIXI.Container();
-    const player = new Player(window.innerWidth / 2, window.innerHeight / 2, 'alien');
+    this.stage = new PIXI.Container();
+    const player : Player = new Player(window.innerWidth / 2, window.innerHeight / 2, 'alien');
 
-    stage.addChild(player.renderable);
+    this.renderQueue.push(player);
+    this.stage.addChild(player.renderable);
 
-    this.renderer.render(stage);
+    this.renderer.render(this.stage);
     this.loop();
   }
 
@@ -59,6 +61,13 @@ class Game {
   }
 
   public loop : () => void = () : void => {
+
+    this.renderQueue.map((item) => {
+
+      item.render();
+    });
+
+    this.renderer.render(this.stage);
 
     window.requestAnimationFrame(this.loop);
   }

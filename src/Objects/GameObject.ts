@@ -1,11 +1,8 @@
 import appVars from '../config/appVars';
 
-class GameObject {
+abstract class GameObject {
 
-  x : number;
-  y : number;
-
-  renderable : PIXI.Sprite;
+  public renderable : PIXI.Sprite;
 
   constructor(x : number, y : number, image : string) {
 
@@ -16,6 +13,10 @@ class GameObject {
     this.renderable.y = y;
     this.renderable.scale.x = appVars.defaults.scale;
     this.renderable.scale.y = appVars.defaults.scale;
+  }
+
+  public render() {
+
   }
 }
 
