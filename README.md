@@ -6,5 +6,11 @@ Run npm i <br/>
 Run npm start <br/>
 Open localhost:3000 <br/>
 
+<h1>Programmeerprincipes</h1>
+Interface -> Behaviour/PlayableCharacter
+Static Utility Method -> Utils (Utils/Input)
+Singleton -> Game
+Strategy -> Behaviour / Player
+
 <h1>UML</h1>
 <img src="https://www.dropbox.com/s/r6w0xb4rsgdw9wp/Klassen%20Diagram.jpg?dl=1"/>
