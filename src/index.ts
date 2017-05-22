@@ -14,9 +14,9 @@ class Game {
 
   private static instance : Game;
   private renderer : any;
+  private stage : PIXI.Container;
 
   public renderQueue : Array<GameObject> = [];
-  private stage : PIXI.Container;
 
   private constructor() {
 
@@ -45,7 +45,7 @@ class Game {
     this.render(window.innerWidth, window.innerHeight);
   }
 
-  public render(width : number, height : number, options? : Object) {
+  public render(width : number, height : number, options? : Object) : void {
 
     this.renderer = PIXI.autoDetectRenderer(width, height);
     document.body.appendChild(this.renderer.view);

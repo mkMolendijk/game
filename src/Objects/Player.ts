@@ -40,7 +40,7 @@ class Player extends GameObject implements PlayableCharacter{
     })
   }
 
-  public move(vx? : number, vy? : number) {
+  public move(vx? : number, vy? : number) : void {
 
     if (!this.isMoving) {
       return;
@@ -73,7 +73,7 @@ class Player extends GameObject implements PlayableCharacter{
     this.behaviour = new Moving(this);
   }
 
-  public render() {
+  public render() : void {
 
     super.render();
 

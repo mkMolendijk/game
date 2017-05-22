@@ -17,7 +17,7 @@ abstract class GameObject {
     this.renderable.scale.y = appVars.defaults.scale;
   }
 
-  public render() {
+  public render() : void {
 
   }
 }
