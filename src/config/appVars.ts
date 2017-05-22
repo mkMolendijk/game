@@ -1,4 +1,8 @@
 export default {
+  defaults: {
+    anchor: 0.5,
+    scale: 0.5,
+  },
   paths: {
     sprites: '/static/spritesheets/',
   },

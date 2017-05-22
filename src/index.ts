@@ -1,5 +1,6 @@
 import * as PIXI from 'pixi.js';
 import appVars from './config/appVars';
+import Player from './Objects/Player';
 
 import './style/main.css';
 
@@ -41,14 +42,9 @@ class Game {
     document.body.appendChild(this.renderer.view);
 
     const stage = new PIXI.Container();
-    const alien = PIXI.Sprite.fromImage('alien');
-    alien.anchor.set(0.5);
+    const player = new Player(window.innerWidth / 2, window.innerHeight / 2, 'alien');
 
-    alien.x = this.renderer.width / 2;
-    alien.y = this.renderer.height / 2;
-
-    this.game.stage.addChild(alien);
-    stage.addChild(alien);
+    stage.addChild(player.renderable);
 
     this.renderer.render(stage);
     this.loop();

@@ -2,6 +2,7 @@
   <dictionary name="matthijs">
     <words>
       <w>pixi</w>
+      <w>renderable</w>
     </words>
   </dictionary>
 </component>
