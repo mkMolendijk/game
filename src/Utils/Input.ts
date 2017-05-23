@@ -2,7 +2,7 @@ namespace Utils {
 
   export class Input {
 
-    public static getInput(keyCode : number) : string {
+    public static getInput(keyCode : number) : string | boolean {
 
       enum Directions {
         Up = 87,
@@ -11,7 +11,7 @@ namespace Utils {
         Right = 68,
       }
 
-      return Directions[keyCode];
+      return Directions[keyCode] || false;
     }
   }
 }

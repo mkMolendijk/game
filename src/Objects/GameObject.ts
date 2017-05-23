@@ -5,6 +5,7 @@ abstract class GameObject {
   public renderable : PIXI.Sprite;
   public vx : number;
   public vy : number;
+  public isMoving : string | boolean;
 
   constructor(x : number, y : number, image : string) {
 

@@ -1,14 +1,12 @@
 import GameObject from './GameObject';
 import PlayableCharacter from '../Interfaces/PlayableCharacter';
 import Input from '../Utils/Input';
-import appVars from '../config/appVars';
 import Idle from '../Behaviours/Idle';
 import Moving from '../Behaviours/Moving';
 import Behaviour from "../Interfaces/Behaviour";
 
 class Player extends GameObject implements PlayableCharacter{
 
-  private isMoving : string | boolean;
   private behaviour : Behaviour;
 
   public vx: number = 0;
@@ -27,7 +25,10 @@ class Player extends GameObject implements PlayableCharacter{
     window.addEventListener("keydown", (e) => {
 
       this.isMoving = Input.getInput(e.keyCode);
-      this.move();
+
+      if (this.isMoving) {
+        this.behaviour = new Moving(this);
+      }
     });
 
     window.addEventListener('keyup', () => {
@@ -38,39 +39,6 @@ class Player extends GameObject implements PlayableCharacter{
 
       this.behaviour = new Idle((this));
     })
-  }
-
-  public move(vx? : number, vy? : number) : void {
-
-    if (!this.isMoving) {
-      return;
-    }
-
-    if (!vx) {
-      vx = appVars.defaults.vx;
-    }
-
-    if (!vy) {
-      vy = appVars.defaults.vy;
-    }
-
-    if (this.isMoving === 'Up') {
-      this.vy = -vy;
-    }
-
-    else if (this.isMoving === 'Down') {
-      this.vy = vy;
-    }
-
-    else if (this.isMoving === 'Right') {
-      this.vx = vx;
-    }
-
-    else if (this.isMoving === 'Left') {
-      this.vx = -vx;
-    }
-
-    this.behaviour = new Moving(this);
   }
 
   public render() : void {

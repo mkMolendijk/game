@@ -1,5 +1,6 @@
 const webpack = require('webpack');
 const { CheckerPlugin } = require('awesome-typescript-loader');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
 
 module.exports = {
@@ -9,9 +10,9 @@ module.exports = {
     './src/index.ts'
   ],
   output: {
-    path: path.join(__dirname, 'dist/libs/'),
-    filename: 'bundle.js',
-    publicPath: '/static/'
+    path: path.join(__dirname, 'dist/'),
+    filename: 'libs/bundle.js',
+    publicPath: '/'
   },
   // Currently we need to add '.ts' to the resolve.extensions array.
   resolve: {
@@ -38,5 +39,8 @@ module.exports = {
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
     new CheckerPlugin(),
+    new HtmlWebpackPlugin({
+      title: 'Alienator [DEV]',
+    })
   ]
 };

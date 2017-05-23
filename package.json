@@ -24,7 +24,7 @@
     "webpack-hot-middleware": "^2.18.0"
   },
   "scripts": {
-    "start": "node ./server/index.js",
+    "start": "rm -rf ./dist/libs ./dist/index.html && node ./server/index.js",
     "build": "rm -rf ./dist/libs && webpack --config ./server/webpack.prod.config.js --watch"
   },
   "author": "Matthijs Perik",
