@@ -2,9 +2,15 @@
 
 <h1>Install</h1>
 Clone this repo.<br/>
-Run ```npm i```<br/>
-Run ```npm start```<br/>
-Open ```localhost:3000``` <br/>
+Run ```
+npm i
+```<br/>
+Run ```
+npm start
+```<br/>
+Open ```
+localhost:3000
+``` <br/>
 
 <h1>Programmeerprincipes</h1>
 Interface -> Behaviour/PlayableCharacter<br/>
