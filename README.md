@@ -1,7 +1,7 @@
 # Alienator
 
 <h1>Play</h1>
-<a href='matthijsperik.github.io/game/dist/'>matthijsperik.github.io/game/dist/</a>
+<a target='_blank' href='https://matthijsperik.github.io/game/dist/'>https://matthijsperik.github.io/game/dist/</a>
 <h1>Install</h1>
 Clone this repo.<br/>
 Run npm i <br/>
