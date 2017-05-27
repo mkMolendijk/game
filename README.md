@@ -16,3 +16,8 @@ Strategy -> Behaviour / Player<br/>
 
 <h1>UML</h1>
 <img src="https://www.dropbox.com/s/r6w0xb4rsgdw9wp/Klassen%20Diagram.jpg?dl=1"/>
+
+<h1>Peer Review</h1>
+Ziet er goed uit. Niks op aan te merken.<br />
+Alle principes zijn behandeld en de UML is duidelijk voor mij<br />
+Voldoende
